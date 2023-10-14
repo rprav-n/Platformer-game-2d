@@ -1,0 +1,15 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697297741
+icon.svg::CompressedTexture2D::8002609494616233145::1697283372::1697283381::1::::<><>::
+::res://assets/::1697283501
+::res://assets/player/::1697283511
+character_0000.png::CompressedTexture2D::671063908685889548::1625300536::1697283510::1::::<><>::
+character_0001.png::CompressedTexture2D::7575495390602704392::1625300536::1697283510::1::::<><>::
+::res://assets/tiles/::1697296109
+tiles_packed.png::CompressedTexture2D::1052794997677407374::1697296074::1697296109::1::::<><>::
+::res://resources/::1697297718
+tileset.tres::TileSet::2504122272497288626::1697297718::0::1::::<><>::uid://o88m6brx1jf7::::res://assets/tiles/tiles_packed.png
+::res://scenes/::1697297718
+main.tscn::PackedScene::3315966576386037091::1697297718::0::1::::<><>::uid://bbxar7lm51f6q::::res://resources/tileset.tres<>uid://jtclbfok4dwm::::res://assets/player/character_0000.png<>res://scripts/Player.gd
+::res://scripts/::1697286671
+Player.gd::GDScript::-1::1697286671::0::1::::<>CharacterBody2D<>::
