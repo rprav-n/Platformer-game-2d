@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://brmgftmysfhlw"]
+
+[ext_resource type="Texture2D" uid="uid://cj4e625xvp6oy" path="res://assets/enemy/character_0015.png" id="1_jfb8o"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jsrif"]
+[ext_resource type="Texture2D" uid="uid://xly6bdo7qsxu" path="res://assets/enemy/character_0016.png" id="2_uxvyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2w5h"]
+size = Vector2(11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdh6e"]
+size = Vector2(11, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44dtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jfb8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uxvyv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uetvf"]
+radius = 5.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_jsrif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -6)
+shape = SubResource("RectangleShape2D_e2w5h")
+
+[node name="GoalDetector" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_wdh6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_44dtm")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.955751
+offset = Vector2(0, -12)
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 262144
+collision_mask = 262144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_uetvf")
