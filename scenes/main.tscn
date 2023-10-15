@@ -1,26 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnijqqygflwbb"]
+[gd_scene load_steps=2 format=3 uid="uid://bnijqqygflwbb"]
 
-[ext_resource type="PackedScene" uid="uid://bo3gyiys23uke" path="res://scenes/tile_map.tscn" id="1_qqfly"]
-[ext_resource type="PackedScene" uid="uid://bktm8aybnpk1f" path="res://scenes/player.tscn" id="2_oatnf"]
-[ext_resource type="PackedScene" uid="uid://4gop8xda0e4g" path="res://scenes/game_camera.tscn" id="3_by2vu"]
-[ext_resource type="PackedScene" uid="uid://da35up2xycobj" path="res://scenes/coin.tscn" id="4_y8gps"]
-[ext_resource type="PackedScene" uid="uid://cs7yfbdd0dmvm" path="res://scenes/spikes.tscn" id="5_a7dt5"]
+[ext_resource type="PackedScene" uid="uid://kdyevrl450jr" path="res://scenes/levels/level_001.tscn" id="1_gy2fx"]
 
 [node name="Main" type="Node"]
 
-[node name="TileMap" parent="." instance=ExtResource("1_qqfly")]
-
-[node name="Player" parent="." instance=ExtResource("2_oatnf")]
-position = Vector2(-63, 54)
-
-[node name="GameCamera" parent="." instance=ExtResource("3_by2vu")]
-background_color = Color(0.87451, 0.964706, 0.960784, 1)
-
-[node name="Coin" parent="." instance=ExtResource("4_y8gps")]
-position = Vector2(45, 45)
-
-[node name="Coin2" parent="." instance=ExtResource("4_y8gps")]
-position = Vector2(72, 45)
-
-[node name="Spikes" parent="." instance=ExtResource("5_a7dt5")]
-position = Vector2(108, 54)
+[node name="Level_001" parent="." instance=ExtResource("1_gy2fx")]

@@ -11,6 +11,7 @@ var direction: Vector2 = Vector2.ZERO
 func _ready():
 	direction = Vector2.RIGHT if start_direction == Direction.RIGHT else Vector2.LEFT
 	$GoalDetector.connect("area_entered", Callable(self, "_on_goal_entered"))
+	$HitboxArea.connect("area_entered", Callable(self, "_on_hitbox_entered"))
 
 func _process(delta: float):
 	velocity.x = (direction * MAX_SPEED).x
@@ -24,3 +25,6 @@ func _process(delta: float):
 
 func _on_goal_entered(_area: Area2D):
 	direction *= -1
+
+func _on_hitbox_entered(_area: Area2D):
+	queue_free()

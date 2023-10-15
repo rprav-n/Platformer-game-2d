@@ -4,23 +4,28 @@ signal died
 
 enum State {NORMAL, DASHING}
 
+@export_flags_2d_physics var dash_hazard_mask: int
+
 const GRAVITY: int = 1000
 const MAX_HORIZONTAL_SPEED: int = 125
-const JUMP_SPEED: int = 350
+const JUMP_SPEED: int = 300
 const HORIZONTAL_ACCELERATION: int = 1800
 const JUMP_TERMINATION_MULTIPLIER: int = 4
 const MAX_DASH_SPEED: int = 500
 const MIN_DASH_SPEED: int = 200
 
 var can_double_jump: bool = false
+var can_dash: bool = true
 var current_state: State = State.NORMAL
 var is_state_new: bool = true
+var default_hazard_mask: int = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 func _ready():
 	$HazardArea.connect("area_entered", Callable(self, "_on_hazard_area_entered"))
+	default_hazard_mask = $HazardArea.collision_mask
 	
 func _process(delta: float):
 	match current_state:
@@ -35,6 +40,10 @@ func change_state(new_state: State):
 	is_state_new = true
 
 func process_normal(delta: float):
+	if is_state_new:
+		$DashArea/CollisionShape2D.disabled = true
+		$HazardArea.collision_mask = default_hazard_mask
+	
 	var move_vector: Vector2 = get_movement_vector()
 	
 	velocity.x += move_vector.x * HORIZONTAL_ACCELERATION * delta
@@ -63,14 +72,19 @@ func process_normal(delta: float):
 	
 	if is_on_floor():
 		can_double_jump = true
+		can_dash = true
 	
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") && can_dash:
 		call_deferred("change_state", State.DASHING)
+		can_dash = false
 	
 	update_animation()
 
 func process_dashing(delta: float):
 	if is_state_new:
+		$DashArea/CollisionShape2D.disabled = false
+		$HazardArea.collision_mask = dash_hazard_mask
+		
 		animated_sprite.play("jump")
 		var move_vector: Vector2 = get_movement_vector()
 		var velocity_mod = 1

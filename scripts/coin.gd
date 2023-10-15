@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	$Area2D.connect("area_entered", Callable(self, "_on_area_entered"))
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(_area: Area2D):
 	animationPlayer.play("pickup")
 	call_deferred("disable_pickup")
 	
