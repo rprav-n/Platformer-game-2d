@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhmfmq2mixt1d"]
+
+[ext_resource type="Script" path="res://scripts/level_ui.gd" id="1_jjnoo"]
+[ext_resource type="Theme" uid="uid://do6w7ceo1jan3" path="res://resources/theme.tres" id="1_st1us"]
+[ext_resource type="FontFile" uid="uid://del4rc35hwucu" path="res://resources/BitPotion.ttf" id="3_0s5sj"]
+[ext_resource type="Texture2D" uid="uid://ckaa4gebno2g4" path="res://assets/coin/tile_0151.png" id="3_555e1"]
+[ext_resource type="Texture2D" uid="uid://cxwhl7stg074g" path="res://assets/coin/tile_0152.png" id="4_1ro01"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ir8ie"]
+frames = 2
+speed_scale = 6.0
+frame_0/texture = ExtResource("3_555e1")
+frame_1/texture = ExtResource("4_1ro01")
+frame_1/duration = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3x2rd"]
+font = ExtResource("3_0s5sj")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_jjnoo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_st1us")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AnimatedTexture_ir8ie")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "10/32"
+label_settings = SubResource("LabelSettings_3x2rd")

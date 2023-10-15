@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy1yx32gmtdk6"]
+[gd_scene load_steps=8 format=3 uid="uid://dy1yx32gmtdk6"]
 
 [ext_resource type="PackedScene" uid="uid://bo3gyiys23uke" path="res://scenes/tile_map.tscn" id="1_okiaq"]
 [ext_resource type="Script" path="res://scripts/base_level.gd" id="1_pinx1"]
+[ext_resource type="PackedScene" uid="uid://bhmfmq2mixt1d" path="res://scenes/UI/level_ui.tscn" id="2_4d4ar"]
 [ext_resource type="PackedScene" uid="uid://bktm8aybnpk1f" path="res://scenes/player.tscn" id="2_lismf"]
 [ext_resource type="PackedScene" uid="uid://4gop8xda0e4g" path="res://scenes/game_camera.tscn" id="3_ifc11"]
 [ext_resource type="PackedScene" uid="uid://gsot6sxmn0kg" path="res://scenes/flag.tscn" id="4_a1lu4"]
+[ext_resource type="PackedScene" uid="uid://cmk5wgwtd2bp2" path="res://scenes/void.tscn" id="6_1xmwp"]
 
-[node name="BaseLevel" type="Node"]
+[node name="BaseLevel" type="Node" groups=["base_level"]]
 script = ExtResource("1_pinx1")
+
+[node name="LevelUI" parent="." instance=ExtResource("2_4d4ar")]
 
 [node name="TileMap" parent="." instance=ExtResource("1_okiaq")]
 layer_0/tile_data = PackedInt32Array()
@@ -24,3 +28,5 @@ background_color = Color(0.87451, 0.964706, 0.960784, 1)
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_lismf")]
+
+[node name="Void" parent="." instance=ExtResource("6_1xmwp")]

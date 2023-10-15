@@ -1,3 +1,9 @@
+TextureRect
+HBoxContainer
+Label
+MarginContainer
+Control
+CanvasLayer
 CollisionShape2D
 Area2D
 AnimatedSprite2D

@@ -1,12 +1,19 @@
+class_name  BaseLevel
 extends Node
+
+signal coin_changed
 
 var player_scene = preload("res://scenes/player.tscn")
 var spawn_postion: Vector2 = Vector2.ZERO
 var current_player_node: CharacterBody2D = null
+var total_coins: int = 0
+var collected_coins: int = 0
 
 func _ready():
 	spawn_postion = $Player.global_position
 	register_player($Player)
+	
+	coin_total_change(get_tree().get_nodes_in_group("coin").size())
 	
 func register_player(player: CharacterBody2D):
 	current_player_node = player
@@ -24,3 +31,12 @@ func create_player():
 func _on_player_died():
 	current_player_node.queue_free()
 	create_player()
+
+func coin_collected():
+	collected_coins += 1
+	print(total_coins, collected_coins)
+	emit_signal("coin_changed", total_coins, collected_coins)
+	
+func coin_total_change(new_total: int):
+	total_coins = new_total
+	emit_signal("coin_changed", total_coins, collected_coins)
