@@ -1,3 +1,77 @@
-[gd_resource type="Theme" format=3 uid="uid://do6w7ceo1jan3"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://do6w7ceo1jan3"]
+
+[ext_resource type="Texture2D" uid="uid://n6jly3844r36" path="res://assets/ui/tile_0009.png" id="1_2wo4j"]
+[ext_resource type="FontVariation" uid="uid://76bbf3cid5wl" path="res://resources/font.tres" id="1_72vft"]
+[ext_resource type="Texture2D" uid="uid://bk2jftrxkoewn" path="res://assets/ui/tile_0029.png" id="1_hs2kv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_den16"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obdmc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_etxap"]
+texture = ExtResource("1_2wo4j")
+texture_margin_left = 6.0
+texture_margin_top = 2.0
+texture_margin_right = 5.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r168q"]
+texture = ExtResource("1_hs2kv")
+texture_margin_left = 6.0
+texture_margin_top = 2.0
+texture_margin_right = 5.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5oiko"]
+load_path = "res://.godot/imported/tile_0029.png-1c46767d72212e07b08646fe6eb70ad7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1pjj"]
+texture = SubResource("CompressedTexture2D_5oiko")
+texture_margin_left = 6.0
+texture_margin_top = 2.0
+texture_margin_right = 5.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6dsd"]
+bg_color = Color(0, 0, 0, 0.705882)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
 
 [resource]
+default_font = ExtResource("1_72vft")
+Button/colors/font_color = Color(0.462745, 0.227451, 0.254902, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.462745, 0.227451, 0.254902, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxFlat_den16")
+Button/styles/focus = SubResource("StyleBoxEmpty_obdmc")
+Button/styles/hover = SubResource("StyleBoxTexture_etxap")
+Button/styles/normal = SubResource("StyleBoxTexture_r168q")
+Button/styles/pressed = SubResource("StyleBoxTexture_e1pjj")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_t6dsd")

@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://76bbf3cid5wl"]
+
+[ext_resource type="FontFile" uid="uid://del4rc35hwucu" path="res://resources/BitPotion.ttf" id="1_httsq"]
+
+[resource]
+base_font = ExtResource("1_httsq")
+fallbacks = Array[Font]([null])
+spacing_top = -2

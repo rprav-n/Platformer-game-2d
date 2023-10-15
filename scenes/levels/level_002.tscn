@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://gv7lkmhrbtv8"]
+
+[ext_resource type="PackedScene" uid="uid://dy1yx32gmtdk6" path="res://scenes/base_level.tscn" id="1_2vj0m"]
+[ext_resource type="PackedScene" uid="uid://dlvpfb8ldvxk3" path="res://scenes/enemy_spawner.tscn" id="2_6rjxm"]
+[ext_resource type="PackedScene" uid="uid://dhe5wif6dpssv" path="res://scenes/enemy_goal.tscn" id="3_b2143"]
+[ext_resource type="PackedScene" uid="uid://da35up2xycobj" path="res://scenes/coin.tscn" id="4_u75h2"]
+
+[node name="Level_002" instance=ExtResource("1_2vj0m")]
+
+[node name="TileMap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(262138, 0, 9, 262139, 65536, 9, 262140, 65536, 9, 262141, 65536, 9, 262142, 65536, 9, 262143, 65536, 9, 196608, 65536, 9, 196609, 131072, 9, 262145, 131072, 11, 262144, 65536, 11, 327679, 65536, 11, 327678, 65536, 11, 327677, 65536, 11, 327676, 65536, 11, 327675, 65536, 11, 327674, 0, 11, 524291, 0, 9, 524292, 65536, 9, 524293, 65536, 9, 524295, 65536, 9, 524294, 65536, 9, 524296, 65536, 9, 524297, 65536, 9, 524299, 65536, 9, 524298, 65536, 9, 524300, 65536, 9, 524301, 65536, 9, 524302, 65536, 9, 524303, 65536, 9, 524304, 65536, 9, 524305, 131072, 9, 589841, 131072, 11, 589840, 65536, 11, 589839, 65536, 11, 589838, 65536, 11, 589837, 65536, 11, 589836, 65536, 11, 589835, 65536, 11, 589834, 65536, 11, 589833, 65536, 11, 589832, 65536, 11, 589831, 65536, 11, 589830, 65536, 11, 589829, 65536, 11, 589828, 65536, 11, 589827, 0, 11)
+
+[node name="Flag" parent="." index="3"]
+position = Vector2(342, 110)
+
+[node name="EnemySpawner" parent="Enemies" index="0" instance=ExtResource("2_6rjxm")]
+position = Vector2(227, 108)
+
+[node name="EnemyGoal" parent="Enemies" index="1" instance=ExtResource("3_b2143")]
+position = Vector2(102, 108)
+
+[node name="EnemyGoal2" parent="Enemies" index="2" instance=ExtResource("3_b2143")]
+position = Vector2(283, 110)
+
+[node name="Coin" parent="Collectables" index="0" instance=ExtResource("4_u75h2")]
+position = Vector2(139, 100)
+
+[node name="Void" parent="." index="8"]
+position = Vector2(0, 211)

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://df6vkjpglsdym" path="res://assets/player/character_0001.png" id="3_lnc0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_642ab"]
-radius = 16.0
+radius = 10.939
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0px"]
 size = Vector2(8, 14)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ug8syeforxwg"]
+
+[ext_resource type="Script" path="res://scripts/level_complete.gd" id="1_kvqby"]
+[ext_resource type="Theme" uid="uid://do6w7ceo1jan3" path="res://resources/theme.tres" id="1_xfbua"]
+[ext_resource type="FontVariation" uid="uid://76bbf3cid5wl" path="res://resources/font.tres" id="2_pgkpt"]
+
+[node name="LevelComplete" type="CanvasLayer"]
+script = ExtResource("1_kvqby")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 126.0
+offset_top = 72.0
+offset_right = 216.0
+offset_bottom = 123.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_xfbua")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pgkpt")
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Next Level"

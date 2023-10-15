@@ -3,6 +3,8 @@ extends Node
 
 signal coin_changed
 
+@export var level_complete_scene: PackedScene
+
 var player_scene = preload("res://scenes/player.tscn")
 var spawn_postion: Vector2 = Vector2.ZERO
 var current_player_node: CharacterBody2D = null
@@ -12,8 +14,9 @@ var collected_coins: int = 0
 func _ready():
 	spawn_postion = $Player.global_position
 	register_player($Player)
-	
 	coin_total_change(get_tree().get_nodes_in_group("coin").size())
+	
+	$Flag.connect("player_won", Callable(self, "_on_player_won"))
 	
 func register_player(player: CharacterBody2D):
 	current_player_node = player
@@ -40,3 +43,8 @@ func coin_collected():
 func coin_total_change(new_total: int):
 	total_coins = new_total
 	emit_signal("coin_changed", total_coins, collected_coins)
+
+func _on_player_won():
+	current_player_node.queue_free()
+	var level_complete = level_complete_scene.instantiate()
+	add_child(level_complete)

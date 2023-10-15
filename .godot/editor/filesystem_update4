@@ -11,3 +11,13 @@ res://scenes/player.tscn
 res://scenes/UI/level_ui.tscn
 res://scripts/level_ui.gd
 res://resources/font_outline.tres
+res://scenes/enemy_spawner.tscn
+res://scripts/enemy_spawner.gd
+res://scripts/enemy.gd
+res://scenes/level_manager.tscn
+res://scripts/level_manager.gd
+res://scenes/levels/level_002.tscn
+res://scripts/base_level.gd
+res://scenes/UI/level_complete.tscn
+res://scripts/level_complete.gd
+res://scripts/main.gd

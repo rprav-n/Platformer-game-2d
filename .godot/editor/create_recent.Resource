@@ -1,5 +1,5 @@
-LabelSettings
 FontVariation
+LabelSettings
 SystemFont
 FontFile
 Theme
