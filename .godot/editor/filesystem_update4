@@ -21,3 +21,7 @@ res://scripts/base_level.gd
 res://scenes/UI/level_complete.tscn
 res://scripts/level_complete.gd
 res://scripts/main.gd
+res://scripts/game_camera.gd
+res://scenes/player_death.tscn
+res://scripts/player_death.gd
+res://scripts/player.gd

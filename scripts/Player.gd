@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal died
 
+var player_death_scene = preload("res://scenes/player_death.tscn")
+
 enum State {NORMAL, DASHING}
 
 @export_flags_2d_physics var dash_hazard_mask: int
@@ -124,5 +126,11 @@ func update_animation():
 
 
 func _on_hazard_area_entered(_area: Area2D):
-	emit_signal("died")
-	
+	call_deferred("kill")
+
+func kill():
+	var player_death: PlayerDeath = player_death_scene.instantiate() as PlayerDeath
+	get_parent().add_child(player_death)
+	player_death.global_position = global_position
+	player_death.velocity = velocity
+	emit_signal("died")	

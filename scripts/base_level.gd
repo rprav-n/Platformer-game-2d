@@ -12,8 +12,8 @@ var total_coins: int = 0
 var collected_coins: int = 0
 
 func _ready():
-	spawn_postion = $Player.global_position
-	register_player($Player)
+	spawn_postion = $PlayerRoot/Player.global_position
+	register_player($PlayerRoot/Player)
 	coin_total_change(get_tree().get_nodes_in_group("coin").size())
 	
 	$Flag.connect("player_won", Callable(self, "_on_player_won"))
@@ -24,8 +24,7 @@ func register_player(player: CharacterBody2D):
 	
 func create_player():
 	var player_instance: CharacterBody2D = player_scene.instantiate()
-	add_child(player_instance)
-	move_child(player_instance, 1)
+	$PlayerRoot.add_child(player_instance)
 	
 	player_instance.global_position = spawn_postion
 		
@@ -33,6 +32,9 @@ func create_player():
 	
 func _on_player_died():
 	current_player_node.queue_free()
+	
+	var timer = get_tree().create_timer(1)
+	await timer.timeout
 	create_player()
 
 func coin_collected():
